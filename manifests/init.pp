@@ -14,7 +14,7 @@ class sysop {
   }
 
   motd { 'defaultmotd':
-    template => 'puppet-motd.erb',
+    $template = 'puppet-motd.erb',
   }
 
   ntp { 'defaultntp': }
