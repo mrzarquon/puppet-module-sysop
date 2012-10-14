@@ -5,7 +5,6 @@
 class sysop {
   include motd
   include sudo
-  include ssh
   include ntp
 
 
