@@ -13,9 +13,7 @@ class sysop {
     content  => "%sysops ALL=(ALL)\n"
   }
 
-  motd { 'defaultmotd':
-    $template = 'puppet-motd.erb',
-  }
+  motd { 'custommotd':}
 
   ntp { 'defaultntp': }
 
