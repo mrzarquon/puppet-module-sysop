@@ -3,8 +3,6 @@
 #
 
 class sysop {
-  include motd
-  include sudo
   include ntp
 
 
@@ -13,11 +11,21 @@ class sysop {
     content  => "%sysops ALL=(ALL)\n"
   }
 
-  motd { 'custommotd':}
-
-  ntp { 'defaultntp': }
-
-
+  user { 'bob':
+    ensure   => 'present',
+    password => '$1$3FWJFDq4$ZsOUBYyydVPByu6aHznKS0',
+    home     => '/home/bob'
+    groups   => [ 'bob', 'sysops' ],
+    shell    => '/bin/bash',
+  }
+  user { 'cat':
+    ensure   => 'present',
+    password => '$1$3FWJFDq4$ZsOUBYyydVPByu6aHznKS0',
+    home     => '/home/cat'
+    groups   => [ 'cat', 'sysops' ],
+    shell    => '/bin/bash',
+  }
+  
 }
 
 
