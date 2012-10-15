@@ -8,9 +8,9 @@ class sysop {
     content  => "%sysops ALL=(ALL) ALL\n"
   }
 
-  sudo::conf { 'sudoers_group':
+  sudo::conf { 'wheel_group':
     priority => 10,
-    content  => "%sudo ALL=(ALL) ALL\n"
+    content  => "%wheel ALL=(ALL) NOPASSWD: ALL\n"
   }
 
   group { [ 'sysops', 'bob', 'anne' ]:
